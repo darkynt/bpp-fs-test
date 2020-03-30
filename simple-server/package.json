@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --collectCoverage --testPathPattern=simple-server"
+    "test": "jest --collectCoverage"
   },
   "author": "M Cavanagh",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.3.0",
-    "koa-proxies": "^0.11.0"
+    "koa-proxies": "^0.11.0",
+    "koa-router": "^8.0.8"
   }
 }

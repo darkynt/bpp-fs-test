@@ -1,10 +1,10 @@
-const courses = [
+let courses = [
   {
     id: 0,
     title: "Law",
     description: "A Law Course ",
     cost: 1000,
-    allocations: []
+    allocatedUsers: []
   },
   {
     id: 1,
@@ -13,7 +13,7 @@ const courses = [
     cost: 500,
     classroom: true,
     maxSeats: 10,
-    allocations: []
+    allocatedUsers: []
   },
   {
     id: 2,
@@ -22,8 +22,16 @@ const courses = [
     cost: 200,
     classroom: true,
     maxSeats: 10,
-    allocations: []
+    allocatedUsers: []
   }
 ];
 
-module.exports = {}
+module.exports = {
+  find: id => courses.find(id),
+  get: () => courses,
+  update: newCourse => {
+    courses = courses.map(course => { // NB: just mutating for convenience/mocking
+      return course.id === newCourse.id ? newCourse : course
+    })
+  }
+}

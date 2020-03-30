@@ -1,6 +1,6 @@
 const Router = require("koa-router");
 const setUser = require("../middleware/set-user");
-const { userToJwtString } = require("../services/fake-auth");
+const { userToJwtString, JWT_EXPIRY_MS } = require("../services/fake-auth");
 const userRouter = new Router();
 
 userRouter.get("/me", setUser, (ctx, next) => {
@@ -15,10 +15,11 @@ userRouter.post("/me", async ctx => {
   const { user, email } = ctx.request.body;
   ctx.cookies.set("bearer", userToJwtString({ user, email }), {
     overwrite: true,
-    secure: true,
     httpOnly: true,
     maxAge: JWT_EXPIRY_MS
   });
+  ctx.status = 200;
+  ctx.body = { msg: "ok" };
 });
 
 module.exports = userRouter;

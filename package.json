@@ -1,0 +1,22 @@
+{
+  "name": "demo-booking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "M Cavanagh",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^25.2.4"
+  },
+  "dependencies": {
+    "i": "^0.3.6",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-proxies": "^0.11.0",
+    "npm": "^6.14.4"
+  }
+}

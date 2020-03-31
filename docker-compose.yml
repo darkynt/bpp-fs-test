@@ -1,0 +1,27 @@
+version: "2"
+services:
+  api:
+    build:
+      context: ./simple-server
+    volumes:
+      - ./simple-server/package.json:/usr/app/package.json
+      - ./simple-server/package-lock.json:/usr/app/package-lock.json
+      - ./simple-server/middleware:/usr/app/middleware
+      - ./simple-server/routes:/usr/app/routes
+      - ./simple-server/services:/usr/app/services
+      - ./simple-server/index.js:/usr/app/index.js
+    environment:
+      - NODE_ENV=dev
+      - UI_HOST=http://ui-dev:3000
+    ports:
+      - 3000:3000
+  ui-dev:
+    build:
+      context: ./portal-ui
+    volumes:
+      - ./portal-ui/package.json:/usr/app/package.json
+      - ./portal-ui/package-lock.json:/usr/app/package-lock.json
+      - ./portal-ui/src:/usr/app/src
+      - ./portal-ui/public:/usr/app/public
+    environment:
+      - NODE_ENV=dev
